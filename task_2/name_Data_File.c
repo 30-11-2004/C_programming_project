@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include"name_Data_File.h"
 
 int name_Data_File(int argc, char** argv, char *name_file[]) {
     if (argc == 1) {

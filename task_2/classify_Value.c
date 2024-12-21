@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
+#include"classify_Value.h"
 #define MIN_VALUE 3.0
 #define MAX_VALUE 550.5
 

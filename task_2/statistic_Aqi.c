@@ -2,6 +2,7 @@
 #include<string.h>
 #include<stdlib.h>
 #include"air_Quality.h"
+#include"statistic_Aqi.h"
 
 int get_Aqi_Value(char get_Line[]) {
     int count = 0;

@@ -3,12 +3,7 @@
 #include<stdlib.h>
 #include"classify_Value.h"
 #include"air_Quality.h"
-
-struct interval_Time {
-    int hour;
-    int minute;
-    int second;
-};
+#include"calc_Dust.h"
 
 void interval(struct interval_Time *si, int interval_Sec) {
     si->hour = interval_Sec/3600;
