@@ -21,7 +21,7 @@ float get_Value(char get_line[]) {
     return atof(sensor_Value);
 }
 
-void print_Classification(char name_file[]) {
+int print_Classification(char name_file[]) {
     FILE *dust_outlier, *dust_valid;
     FILE *data_File;
     float sensor_Value;
@@ -29,6 +29,14 @@ void print_Classification(char name_file[]) {
     int count = 0;
     int number_outlier = 0;
     data_File = fopen(name_file, "r");
+    if(data_File == NULL) {
+        FILE *error_File;
+        error_File = fopen("task2.log", "a");
+        fputs("Error 01: file not found or or cannot be accessed\n", error_File);
+        fclose(error_File);
+        fclose(data_File);
+        return 0;
+    }
     dust_outlier = fopen("dust_outlier.csv", "a");
     dust_valid = fopen("dust_valid.csv", "a");
     while(fgets(get_line,30,data_File)) {
@@ -61,4 +69,5 @@ void print_Classification(char name_file[]) {
     fclose(dust_outlier);
     fclose(dust_valid);
 }
+return 1;
 }

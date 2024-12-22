@@ -7,7 +7,7 @@
 
 int main(int argc, char** argv) {
     char *name_file[30];
-    name_Data_File(argc, argv, name_file);
+    if(name_Data_File(argc, argv, name_file) == 0) return 0;
     print_Classification(*name_file);
     print_AQI();
     print_Summary(*name_file);

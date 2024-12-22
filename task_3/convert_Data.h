@@ -30,6 +30,6 @@ uint8_t format_hex_uint32(uint32_t number, char string_Hex_uint32[12]);
 // return sum of bytes
 uint8_t format_hex_uint16(uint16_t number, char string_Hex_uint16[6]);
 
-void convert_Data(struct frame *frame_1, char data_File[], char hex_File[]);
+int convert_Data(struct frame *frame_1, char data_File[], char hex_File[]);
 
 #endif

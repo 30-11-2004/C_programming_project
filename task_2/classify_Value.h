@@ -9,6 +9,6 @@
 
 float get_Value(char get_line[]);
 
-void print_Classification(char name_file[]);
+int print_Classification(char name_file[]);
 
 #endif

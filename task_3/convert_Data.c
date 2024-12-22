@@ -76,7 +76,7 @@ uint8_t format_hex_uint16(uint16_t number, char string_Hex_uint16[6]) {
     return sum;
 }
 
-void convert_Data(struct frame *frame_1, char data_File[], char hex_File[]) {
+int convert_Data(struct frame *frame_1, char data_File[], char hex_File[]) {
     FILE *data;
     FILE *hex;
     int id;
@@ -86,8 +86,16 @@ void convert_Data(struct frame *frame_1, char data_File[], char hex_File[]) {
     char level[50];
     char string_Hex_uint32[12] = "00 00 00 00";
     char string_Hex_uint16[6] = "00 00";
-    data = fopen(data_File, "r");
     hex = fopen(hex_File, "a");
+    if(hex == NULL) {
+        FILE *error_File;
+        error_File = fopen("task3.log", "a");
+        fputs("Error 07: cannot override the hex file", error_File);
+        fclose(error_File);
+        fclose(hex);
+        return 0;
+    }
+    data = fopen(data_File, "r");
     printf("%s", data_File);
     fgets(level, 50, data);
     frame_1->start_Byte = 0xAA;
@@ -115,4 +123,5 @@ void convert_Data(struct frame *frame_1, char data_File[], char hex_File[]) {
         }
     fclose(data);
     fclose(hex);
+    return 1;
 }

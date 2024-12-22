@@ -4,9 +4,12 @@
 #include"air_Quality.h"
 
 int get_Id(char get_line[]) {
-    char id[2];
+    char id[3];
     for (int i = 0; i < 3; i++) {
-        if (get_line[i] == ',') return atoi(id);
+        if (get_line[i] == ',') {
+            id[i] = '\0';
+            return atoi(id);
+        }
         id[i] = get_line[i];
     }
 }

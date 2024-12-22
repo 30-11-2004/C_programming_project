@@ -11,7 +11,10 @@ int name_Data_File(int argc, char** argv, char *name_file[]) {
         return 1;
     }
     else {
-        printf("ERROR_INPUT!");
-        return 1;
+        FILE *error_File;
+        error_File = fopen("task2.log", "a");
+        fputs("Error 03: invalid command", error_File);
+        fclose(error_File);
+        return 0;
     }
 } 
